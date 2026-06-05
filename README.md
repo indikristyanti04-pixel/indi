@@ -29,23 +29,23 @@ ecommerce-catalog/
 
 ---
 
-## 🚀 Cara Membuka Aplikasi
+##  Cara Membuka Aplikasi
 
 ### Cara 1: Langsung Buka File
 1. Download atau clone repository ini
-2. Buka folder `shopcatalog`
+2. Buka folder `E-Commerce Product Catalog`
 3. Klik dua kali file `index.html`
 4. Aplikasi akan terbuka di browser default Anda
 
 ### Cara 2: Menggunakan Live Server
-1. Buka folder project di **VS Code**
-2. Install ekstensi **Live Server**
+1. Buka folder project di VS Code
+2. Install ekstensi Live Server
 3. Klik kanan file `index.html`
-4. Pilih **Open with Live Server**
+4. Pilih Open with Live Server
 
 ---
 
-## 📝 Cara Penggunaan
+##  Cara Penggunaan
 
 **Tambah Produk:**
 - Isi nama, harga, deskripsi, brand → klik Tambah Produk
