@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopCatalog - E-Commerce</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <h1 class="logo">🛍️ ShopCatalog</h1>
+                    
+                    <div class="search-area">
+                        <input type="text" id="searchInput" placeholder="Cari produk...">
+                        <button id="searchBtn">Cari</button>
+                    </div>
+                    
+                    <div class="actions">
+                        <button id="openAddBtn" class="btn-add">+ Tambah Produk</button>
+                        <div class="cart" id="cartIcon">🛒 <span id="cartCount">0</span></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Notifikasi -->
+        <div id="toastContainer"></div>
+
+        <!-- Main Content -->
+        <div class="container">
+            <div class="main-grid">
+                <!-- Sidebar Kategori -->
+                <aside class="sidebar">
+                    <h3>Kategori</h3>
+                    <div id="categoryList" class="category-list">
+                        <div class="loading-text">Memuat kategori...</div>
+                    </div>
+                    <button id="resetFilterBtn" class="btn-reset">Reset Filter</button>
+                </aside>
+
+                <!-- Content Produk -->
+                <main class="content">
+                    <div class="content-header">
+                        <h2 id="pageTitle">Semua Produk</h2>
+                        <select id="sortSelect">
+                            <option value="default">Sortir: Default</option>
+                            <option value="price-asc">Harga: Rendah ke Tinggi</option>
+                            <option value="price-desc">Harga: Tinggi ke Rendah</option>
+                            <option value="title-asc">Nama: A ke Z</option>
+                        </select>
+                    </div>
+                    
+                    <div id="productsGrid" class="products-grid">
+                        <div class="loading-text">Loading produk...</div>
+                    </div>
+
+                    <div id="pagination" class="pagination"></div>
+                </main>
+            </div>
+        </div>
+
+        <!-- Modal Detail Produk -->
+        <div id="detailModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" id="closeDetailBtn">&times;</span>
+                <div id="modalBody"></div>
+            </div>
+        </div>
+
+        <!-- Modal Form Tambah/Edit Produk -->
+        <div id="formModal" class="modal">
+            <div class="modal-content">
+                <span class="close-form" id="closeFormBtn">&times;</span>
+                <h2 id="formTitle">Tambah Produk Baru</h2>
+                <form id="productForm">
+                    <input type="hidden" id="editId" value="">
+                    
+                    <div class="form-group">
+                        <label>Nama Produk *</label>
+                        <input type="text" id="productName" required placeholder="Contoh: Samsung Galaxy S25 Ultra">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Harga ($) *</label>
+                        <input type="number" id="productPrice" required min="0" step="0.01" placeholder="999.99">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Deskripsi</label>
+                        <textarea id="productDesc" rows="3" placeholder="Deskripsi produk..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Brand</label>
+                        <input type="text" id="productBrand" placeholder="Samsung, Apple, dll">
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="submit" class="btn-submit">+ Tambah Produk</button>
+                        <button type="button" class="btn-cancel" id="cancelFormBtn">Batal</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal Keranjang Belanja -->
+        <div id="cartModal" class="modal">
+            <div class="modal-content" style="max-width: 500px;">
+                <span class="close-cart" id="closeCartBtn">&times;</span>
+                <h2>🛒 Keranjang Belanja</h2>
+                <div id="cartModalBody" style="max-height: 400px; overflow-y: auto;">
+                    <div class="loading-text">Keranjang kosong</div>
+                </div>
+                <div id="cartTotal" style="margin-top: 20px; padding-top: 15px; border-top: 2px solid #eee; font-size: 18px; text-align: right;">
+                    Total: $0
+                </div>
+                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button id="checkoutBtn" class="btn-submit">💳 Checkout</button>
+                    <button id="closeCartModalBtn" class="btn-cancel">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
